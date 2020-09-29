@@ -60,6 +60,8 @@ class ViewController: UIViewController {
     @IBAction func PlayButton(_ sender: Any) {
         
         if timer == nil{
+            
+            print("play")
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
             //ボタンの名前を変える
             Playbutton.setTitle("停止", for: .normal)
