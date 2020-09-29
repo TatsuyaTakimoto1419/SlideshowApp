@@ -17,11 +17,16 @@ class ViewController: UIViewController {
   
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
+   
+  
     
     // 配列に指定するindex番号を宣言
        var nowIndex:Int = 0
+       var getNowIndex = 0
+  
     // スライドショーに使用するタイマーを宣言
     var timer: Timer!
+   
     // スライドショーさせる画像の配列を宣言
        var imageArray:[UIImage] = [
            UIImage(named: "image1")!,
@@ -37,13 +42,24 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
     print("segue")
         
+       
+        
         if (segue.identifier == "ViewController2"){
             
             let subVC:ViewController2 = (segue.destination as? ViewController2)!
             
             ImageView.image = imageArray[nowIndex]
             subVC.selectedImg = ImageView.image
+            
+            print("tapped")
+            
+            getNowIndex = nowIndex
+            
+            
         }
+        
+      
+        
         
     }
         
@@ -123,16 +139,24 @@ class ViewController: UIViewController {
         
     }
     
-   
+
   
-    @IBAction func ImageTap(_ sender: Any) {
-        print("tapped")
+    @IBAction func tap(_ sender: Any) {
+        
+      
         
     }
+    
+        
+    
     
     
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        
+        ImageView.image = imageArray[getNowIndex]
+        
+       
       }
     
     

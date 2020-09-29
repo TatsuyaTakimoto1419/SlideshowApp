@@ -13,11 +13,13 @@ class ViewController2: UIViewController {
    
     @IBOutlet weak var ShowImage: UIImageView!
     var selectedImg:UIImage!
+    var timer:Timer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ShowImage.image = selectedImg
+        
         
         
         // Do any additional setup after loading the view.
